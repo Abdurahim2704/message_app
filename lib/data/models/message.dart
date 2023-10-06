@@ -1,41 +1,53 @@
-class MessageModel {
+class Message {
+  final String fromUserId;
+  final String toUserId;
   final String messageId;
-  final String? message;
-  final String? mediaUrl;
+  final String content;
+  final MessageType type;
   final DateTime date;
   bool isSeen;
 
-  MessageModel({
+  Message({
+    required this.fromUserId,
+    required this.toUserId,
     required this.messageId,
-    required this.message,
-    required this.mediaUrl,
+    required this.type,
+    required this.content,
     required this.date,
     this.isSeen = false,
   });
 
-  factory MessageModel.fromJson(Map<String, Object?> json) {
+  factory Message.fromJson(Map<String, Object?> json) {
     final String messageId = json['messageId'] as String;
-    final String? message = json['message'] as String?;
-    final String? mediaUrl = json['mediaUrl'] as String?;
+    final String fromUserId = json['fromUserId'] as String;
+    final String toUserId = json['toUserId'] as String;
+    final String content = json['content'] as String;
     final DateTime date = DateTime.parse(json['date'] as String);
     final bool isSeen = json['isSeen'] as bool;
+    final MessageType type = (json['type'] as String) == "text"
+        ? MessageType.text
+        : MessageType.image;
 
-    return MessageModel(
+    return Message(
       messageId: messageId,
-      message: message,
-      mediaUrl: mediaUrl,
       date: date,
       isSeen: isSeen,
+      fromUserId: fromUserId,
+      toUserId: toUserId,
+      type: type,
+      content: content,
     );
   }
 
   Map<String, Object?> toJson() {
     return {
       'messageId': messageId,
-      'message': message,
-      'mediaUrl': mediaUrl,
+      'content': content,
+      'type': type.name,
       'date': date,
       'isSeen': isSeen,
     };
   }
 }
+
+enum MessageType { text, image }
