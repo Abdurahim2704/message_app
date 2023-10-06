@@ -44,8 +44,10 @@ class Message {
       'messageId': messageId,
       'content': content,
       'type': type.name,
-      'date': date,
+      'date': date.toIso8601String(),
       'isSeen': isSeen,
+      'toUserId': toUserId,
+      "fromUserId": fromUserId,
     };
   }
 }
