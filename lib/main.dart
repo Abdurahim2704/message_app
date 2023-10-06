@@ -8,7 +8,7 @@ import 'package:message_app/firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final users = await UserService.getUsers();
   print(users.length);
   runApp(const MyApp());
