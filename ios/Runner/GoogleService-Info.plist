@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDT7HKyhishkxV7YPt6egh3aTCvEkVPj80</string>
+	<key>GCM_SENDER_ID</key>
+	<string>500519806989</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pdp.messageApp</string>
+	<key>PROJECT_ID</key>
+	<string>note-project-id27</string>
+	<key>STORAGE_BUCKET</key>
+	<string>note-project-id27.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:500519806989:ios:68f9628ee49a73bdae0d44</string>
+	<key>DATABASE_URL</key>
+	<string>https://note-project-id27-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
