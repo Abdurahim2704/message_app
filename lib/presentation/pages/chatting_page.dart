@@ -34,7 +34,7 @@ class _ChattingPageState extends State<ChattingPage> {
             children: [
               ActionButtons(
                 function: () {},
-                child:  Image(
+                child: const Image(
                   image: CustomImages.icBack,
                 ),
               ),
