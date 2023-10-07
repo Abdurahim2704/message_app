@@ -7,14 +7,12 @@ import 'package:message_app/data/models/message.dart';
 import 'package:message_app/data/services/message_service.dart';
 import 'package:message_app/data/services/user_service.dart';
 import 'package:message_app/presentation/views/your_message.dart';
-
 import '../../core/constants/colors.dart';
 import '../../core/constants/images.dart';
 import '../../core/constants/strings.dart';
 import '../../core/constants/styles.dart';
 import '../views/action_buttons.dart';
 import '../views/my_message.dart';
-
 import 'package:image_picker/image_picker.dart';
 
 
@@ -35,7 +33,9 @@ class _ChattingPageState extends State<ChattingPage> {
   void getImage() async {
     final xFile = await imgPicker.pickImage(source: ImageSource.gallery);
     file = xFile != null ? File(xFile.path) : null;
-    /// firebaega ulanmagan
+   if(file != null){
+     StoreService.uploadFile(file!);
+   }
   }
 
 
@@ -121,9 +121,13 @@ class _ChattingPageState extends State<ChattingPage> {
                     messages[i].fromUserId == user.id
                         ? MyMessage(
                             time: messages[i].date,
-                            message: messages[i].content)
+                            message: messages[i].content,
+                        //imageUrl: messages[i].imageUrl,
+                    )
+
                         : YourMessage(
                             time: messages[i].date,
+                            //imageUrl: messages[i].imageUrl,
                             message: messages[i].content),
                   const SizedBox(height: 80)
                 ],
@@ -191,15 +195,13 @@ class _ChattingPageState extends State<ChattingPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 8),
                         CircleAvatar(
                           backgroundColor: CustomColors.$FF6421,
                           radius: 24,
                           child: IconButton(
                             onPressed: () {
-                              MessageService.addMessage(controller.text, user.id);
-                              messages = [...user.messages, ...user.messages];
-
+                              MessageService.addMessage(controller.text, user.id,file: file);
+                              messages = [...user.messages, ...user.messages,];
                               messages.sort((a, b) => a.date.compareTo(b.date));
                               controller.text = '';
                               setState(() {});

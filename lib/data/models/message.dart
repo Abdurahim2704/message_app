@@ -5,6 +5,7 @@ class Message {
   final String content;
   final MessageType type;
   final DateTime date;
+  final String imageUrl;
   bool isSeen;
 
   Message({
@@ -14,6 +15,7 @@ class Message {
     required this.type,
     required this.content,
     required this.date,
+    required this.imageUrl,
     this.isSeen = false,
   });
 
@@ -22,6 +24,7 @@ class Message {
     final String fromUserId = json['fromUserId'] as String;
     final String toUserId = json['toUserId'] as String;
     final String content = json['content'] as String;
+    final String? imageUrl = json["imageUrl"] as String?;
     final DateTime date = DateTime.parse(json['date'] as String);
     final bool isSeen = json['isSeen'] as bool;
     final MessageType type = (json['type'] as String) == "text"
@@ -34,6 +37,7 @@ class Message {
       isSeen: isSeen,
       fromUserId: fromUserId,
       toUserId: toUserId,
+      imageUrl: imageUrl ?? "",
       type: type,
       content: content,
     );
@@ -46,6 +50,7 @@ class Message {
       'type': type.name,
       'date': date.toIso8601String(),
       'isSeen': isSeen,
+      // "imageUrl": imageUrl,
       'toUserId': toUserId,
       "fromUserId": fromUserId,
     };

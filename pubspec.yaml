@@ -32,6 +32,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/users/
   fonts:
     - family: SFUI
       fonts:
