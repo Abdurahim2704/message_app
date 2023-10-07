@@ -10,7 +10,7 @@ sealed class MessageService {
     final ref = fb.ref(Folders.user.name).child(user.id);
     final newMessage = Message(
         fromUserId: user.id,
-        toUserId: "user8",
+        toUserId: "user3",
         messageId: "9",
         type: MessageType.text,
         content: message,

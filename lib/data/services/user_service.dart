@@ -18,8 +18,8 @@ sealed class UserService {
           (e) => User.fromJson(e as Map<String, dynamic>),
         )
         .toList();
-    user = users.first;
-    user8 = users.firstWhere((element) => element.id == "user8");
+    user8 = users.first;
+    user = users.firstWhere((element) => element.id == "user8");
     return users;
   }
 
