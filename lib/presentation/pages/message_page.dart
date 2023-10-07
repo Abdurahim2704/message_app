@@ -4,20 +4,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:message_app/core/constants/icons.dart';
 import 'package:message_app/presentation/views/custom_list_tile.dart';
 import 'package:message_app/presentation/views/custom_text_fild.dart';
+import '../../core/constants/colors.dart';
 import '../../core/constants/images.dart';
 import '../../core/constants/strings.dart';
 import '../views/custom_buuton_app_bar.dart';
 import '../views/custom_text_view.dart';
 
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MessagePage extends StatefulWidget {
+  const MessagePage({super.key});
+
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MessagePage> createState() => _MessagePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MessagePageState extends State<MessagePage> {
+  TextEditingController controller = TextEditingController();
+
   IsOnlineCheck checkUserOnline = IsOnlineCheck.online;
   String select = "";
 
@@ -72,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                   /// #message text
                   const KTextMessageWidget(),
 
-                  IconButton.filled(
+                  IconButton(
                     onPressed: () {},
                     icon: Image(
                       image: KTImages.editIcon,
@@ -87,7 +91,28 @@ class _HomePageState extends State<HomePage> {
               ),
 
               /// #textFild
-              const KTextField(),
+             // const KTextField(),
+
+              /// #test
+            TextField(
+              controller: controller,
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              filled: true,
+              fillColor: KTColors.grey200,
+              hintText: KTStrings.searchText,
+              helperStyle: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w400,
+                color: KTColors.grey400,
+                letterSpacing: 0.3.sp,
+              ),
+              prefixIcon: KTIcons.search,
+            ),
+          ),
+
               SizedBox(
                 height: 15.h,
               ),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:message_app/core/constants/icons.dart';
@@ -13,6 +15,9 @@ import '../../core/constants/styles.dart';
 import '../views/action_buttons.dart';
 import '../views/my_message.dart';
 
+import 'package:image_picker/image_picker.dart';
+
+
 class ChattingPage extends StatefulWidget {
   const ChattingPage({super.key});
 
@@ -24,6 +29,15 @@ class _ChattingPageState extends State<ChattingPage> {
   final TextEditingController controller = TextEditingController();
   final ScrollController scrollController = ScrollController();
   List<Message> messages = [];
+  final ImagePicker imgPicker = ImagePicker();
+  File? file;
+
+  void getImage() async {
+    final xFile = await imgPicker.pickImage(source: ImageSource.gallery);
+    file = xFile != null ? File(xFile.path) : null;
+    /// firebaega ulanmagan
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +183,7 @@ class _ChattingPageState extends State<ChattingPage> {
                               filled: true,
                               fillColor: CustomColors.$F7F7F9,
                               suffixIcon: IconButton(
-                                onPressed: () {},
+                                onPressed: getImage,
                                 icon: const Image(
                                   image: CustomImages.icFiles,
                                 ),
@@ -184,7 +198,7 @@ class _ChattingPageState extends State<ChattingPage> {
                           child: IconButton(
                             onPressed: () {
                               MessageService.addMessage(controller.text, user.id);
-                              messages = [...user.messages, ...user8.messages];
+                              messages = [...user.messages, ...user.messages];
 
                               messages.sort((a, b) => a.date.compareTo(b.date));
                               controller.text = '';

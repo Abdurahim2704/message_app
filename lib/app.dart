@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:message_app/presentation/pages/chatting_page.dart';
+import 'package:message_app/presentation/pages/message_page.dart';
+import 'package:message_app/presentation/pages/notification_page.dart';
 import 'core/constants/images.dart';
 import 'data/models/notification.dart';
 
@@ -28,10 +30,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      //designSize: const Size(375, 812),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
           theme: ThemeData.light(useMaterial3: true),
-          home: const ChattingPage()),
+          home:  const ChattingPage()),
     );
   }
 }
