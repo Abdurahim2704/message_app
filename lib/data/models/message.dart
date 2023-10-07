@@ -50,6 +50,16 @@ class Message {
       "fromUserId": fromUserId,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Message &&
+          runtimeType == other.runtimeType &&
+          date == other.date;
+
+  @override
+  int get hashCode => Object.hash(toUserId, messageId);
 }
 
 enum MessageType { text, image }

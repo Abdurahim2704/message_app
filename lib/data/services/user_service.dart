@@ -5,6 +5,7 @@ import '../models/folders.dart';
 import '../models/user.dart';
 
 late final User user;
+late final User user8;
 
 sealed class UserService {
   static FirebaseDatabase fb = FirebaseDatabase.instance;
@@ -18,6 +19,7 @@ sealed class UserService {
         )
         .toList();
     user = users.first;
+    user8 = users.firstWhere((element) => element.id == "user8");
     return users;
   }
 
@@ -27,4 +29,5 @@ sealed class UserService {
     final toUser = User.fromJson(userJson as Map<String, dynamic>);
     return toUser;
   }
+
 }

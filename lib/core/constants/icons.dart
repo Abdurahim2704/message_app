@@ -11,4 +11,5 @@ sealed class KTIcons{
     color: Colors.black,
   );
   static Icon search = const Icon(CupertinoIcons.search);
+  static Icon send = const Icon(Icons.send_outlined);
 }

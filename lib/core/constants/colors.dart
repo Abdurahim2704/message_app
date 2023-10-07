@@ -15,6 +15,7 @@ sealed class CustomColors {
   static const Color $7D848D = Color(0xFF7D848D);
   static const Color $F7F7F9 = Color(0xFFF7F7F9);
   static const Color $FF6421 = Color(0xFFFF6421);
+  static const Color $FFFFFF = Color(0xFFFFFFFF);
 }
 
 
