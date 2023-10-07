@@ -11,7 +11,8 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final users = await UserService.getUsers();
-  await MessageService.addMessage("Test2");
+  await MessageService.addMessage("Test2", "user1");
+  await UserService.getUserById("user8");
   print(users.length);
   runApp(const MyApp());
 }

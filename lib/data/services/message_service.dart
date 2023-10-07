@@ -6,7 +6,7 @@ import 'package:message_app/data/services/user_service.dart';
 sealed class MessageService {
   static final fb = FirebaseDatabase.instance;
 
-  static Future<bool> addMessage(String message) async {
+  static Future<bool> addMessage(String message, String toId) async {
     final ref = fb.ref(Folders.user.name).child(user.id);
     final newMessage = Message(
         fromUserId: user.id,
@@ -16,6 +16,7 @@ sealed class MessageService {
         content: message,
         date: DateTime.now());
     user.messages.add(newMessage);
+    ref.update({"messages": user.messages.map((e) => e.toJson()).toList()});
     ref.update({"messages": user.messages.map((e) => e.toJson()).toList()});
     return true;
   }
