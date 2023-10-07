@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:message_app/presentation/pages/chatting_page.dart';
 import 'package:message_app/presentation/pages/notification_page.dart';
 
 import 'core/constants/images.dart';
@@ -32,9 +33,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       child: MaterialApp(
         theme: ThemeData.light(useMaterial3: true),
-        home: NotificationPage(
-          notifications: notifications,
-        ),
+        home: ChattingPage()
       ),
     );
   }
