@@ -8,12 +8,12 @@ class YourMessage extends StatelessWidget {
   final String message;
   final DateTime time;
   final bool isSeen;
-  //final String imageUrl;
+  final String imageUrl;
   const YourMessage({
     this.isSeen = false,
     required this.time,
     required this.message,
-   // required this.imageUrl,
+    required this.imageUrl,
     super.key,
   });
 
@@ -64,7 +64,7 @@ class YourMessage extends StatelessWidget {
               ),
             ),
           ),
-        //  imageUrl.isNotEmpty? Image.network(imageUrl): const SizedBox.shrink(),
+         imageUrl.isNotEmpty? Image.network(imageUrl): const SizedBox.shrink(),
           const Spacer(),
         ],
       ),

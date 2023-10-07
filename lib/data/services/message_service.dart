@@ -14,7 +14,7 @@ sealed class MessageService {
 
     final newMessage = Message(
         fromUserId: user.id,
-        imageUrl: await StoreService.uploadFile(file!),
+        imageUrl: await StoreService.uploadFile(file: file),
         toUserId: "user3",
         messageId: "9",
         type: MessageType.text,
@@ -47,11 +47,14 @@ sealed class MessageService {
 sealed class StoreService {
   static final storage = FirebaseStorage.instance;
 
-  static Future<String> uploadFile(File file) async {
-    final image = storage.ref("messageImage").child(
-        "image_${DateTime.now().toIso8601String()}${file.path.substring(file.path.lastIndexOf("."))}");
-    final task = image.putFile(file);
-    await task.whenComplete(() {});
-    return image.getDownloadURL();
+  static Future<String> uploadFile({File? file}) async {
+    if(file != null){
+      final image = storage.ref("messageImage").child(
+          "image_${DateTime.now().toIso8601String()}${file.path.substring(file.path.lastIndexOf("."))}");
+      final task = image.putFile(file);
+      await task.whenComplete(() {});
+      return image.getDownloadURL();
+    }
+    return "";
   }
 }

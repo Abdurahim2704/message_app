@@ -34,7 +34,7 @@ class _ChattingPageState extends State<ChattingPage> {
     final xFile = await imgPicker.pickImage(source: ImageSource.gallery);
     file = xFile != null ? File(xFile.path) : null;
    if(file != null){
-     StoreService.uploadFile(file!);
+     StoreService.uploadFile(file: file);
    }
   }
 
@@ -122,12 +122,12 @@ class _ChattingPageState extends State<ChattingPage> {
                         ? MyMessage(
                             time: messages[i].date,
                             message: messages[i].content,
-                        //imageUrl: messages[i].imageUrl,
+                        imageUrl: messages[i].imageUrl,
                     )
 
                         : YourMessage(
                             time: messages[i].date,
-                            //imageUrl: messages[i].imageUrl,
+                            imageUrl: messages[i].imageUrl,
                             message: messages[i].content),
                   const SizedBox(height: 80)
                 ],
