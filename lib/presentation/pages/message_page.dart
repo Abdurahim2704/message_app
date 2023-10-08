@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:message_app/core/constants/icons.dart';
+import 'package:message_app/presentation/pages/chatting_page.dart';
 import 'package:message_app/presentation/views/custom_list_tile.dart';
 import 'package:message_app/presentation/views/custom_text_fild.dart';
 import '../../core/constants/colors.dart';
@@ -124,7 +125,9 @@ class _MessagePageState extends State<MessagePage> {
                   itemBuilder: (context, i) {
                     final img = KTImages.userImage[i];
                     final title = KTStrings.username[i];
-                    return KTListTile(img: img, i: i, title: title);
+                    return KTListTile(
+                        img: img, i: i, title: title,
+                    );
                   },
                 ),
               ),

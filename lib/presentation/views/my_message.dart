@@ -8,11 +8,13 @@ class MyMessage extends StatelessWidget {
   final String message;
   final DateTime time;
   final bool isSeen;
+  final String imageUrl;
 
   const MyMessage({
     this.isSeen = false,
     required this.time,
     required this.message,
+    required this.imageUrl,
     super.key,
   });
 
@@ -23,6 +25,7 @@ class MyMessage extends StatelessWidget {
       child: Row(
         children: [
           const Spacer(),
+          if(imageUrl.isNotEmpty)Image.network(imageUrl),
           SizedBox(
             width: message.split("\n").any((element) => element.length >= 25)
                 ? 240.sp

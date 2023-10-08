@@ -30,11 +30,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      //designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
           theme: ThemeData.light(useMaterial3: true),
-          home:  const ChattingPage()),
+          home:  const MessagePage()),
     );
   }
 }

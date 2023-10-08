@@ -4,6 +4,7 @@ import 'package:message_app/core/constants/colors.dart';
 import 'package:message_app/core/constants/images.dart';
 
 import '../../core/constants/strings.dart';
+import '../pages/chatting_page.dart';
 
 
 class KTListTile extends StatelessWidget {
@@ -12,11 +13,14 @@ class KTListTile extends StatelessWidget {
   final String title;
 
   const KTListTile(
-      {super.key, required this.img, required this.i, required this.title});
+      {super.key, required this.img, required this.i, required this.title,});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap:  (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const ChattingPage()));
+      },
       leading: Stack(
         alignment: Alignment.bottomRight,
         children: [
