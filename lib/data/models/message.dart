@@ -5,7 +5,7 @@ class Message {
   final String content;
   final MessageType type;
   final DateTime date;
-  final String imageUrl;
+  final String? imageUrl;
   bool isSeen;
 
   Message({
@@ -15,7 +15,7 @@ class Message {
     required this.type,
     required this.content,
     required this.date,
-    required this.imageUrl,
+     this.imageUrl,
     this.isSeen = false,
   });
 

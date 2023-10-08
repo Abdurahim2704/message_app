@@ -33,7 +33,7 @@ class _ChattingPageState extends State<ChattingPage> {
     return Scaffold(
       extendBody: true,
       backgroundColor: CustomColors.$FFFFFF,
-      appBar: AppBar(
+      appBar: AppBar(automaticallyImplyLeading: false,
           forceMaterialTransparency: true,
           backgroundColor: Colors.transparent,
           flexibleSpace: SizedBox(height: 48.sp),
@@ -48,7 +48,9 @@ class _ChattingPageState extends State<ChattingPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ActionButtons(
-                      function: () {},
+                      function: () {
+                        Navigator.pop(context);
+                      },
                       child: const Image(
                         image: CustomImages.icBack,
                       ),
@@ -132,10 +134,10 @@ class _ChattingPageState extends State<ChattingPage> {
                     messages[i].fromUserId == user.id
                         ? MyMessage(
                             time: messages[i].date,
-                            message: messages[i].content)
+                            message: messages[i].content,)
                         : YourMessage(
                             time: messages[i].date,
-                            message: messages[i].content),
+                            message: messages[i].content,),
                   const SizedBox(height: 80)
                 ],
               ),
