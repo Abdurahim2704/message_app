@@ -16,7 +16,7 @@ sealed class UserService {
         .values
         .map(
           (e) => User.fromJson(e as Map<String, dynamic>),
-        )
+    )
         .toList();
     user8 = users.first;
     user = users.firstWhere((element) => element.id == "user8");

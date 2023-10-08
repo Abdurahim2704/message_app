@@ -19,6 +19,9 @@ sealed class CustomStrings {
   static const String connecting = "Connecting";
   static const String recently = "Last seen recently";
   static const String type = "Type your message";
+  static const String call = "Do you want call ?";
+  static const String yes = "Yes";
+  static const String no = "No";
 
 }
 

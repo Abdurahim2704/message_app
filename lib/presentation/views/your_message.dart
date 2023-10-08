@@ -23,7 +23,9 @@ class YourMessage extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: message.length >= 29 ? 240.sp : null,
+            width: message.split("\n").any((element) => element.length >= 25)
+          ? 240.sp
+          : null,
             child: DecoratedBox(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
